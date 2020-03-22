@@ -3,29 +3,56 @@
 		<%= link_to "Bookers", root_path, id: "logo" %>
 		<nav>
 			<ul class="nav navbar-nav navbar-right">
-				<li>
-				  <%= link_to root_path do %>
-					<span class="glyphicon glyphicon-home nav-item" aria-hidden="true"> Home</span>
-	              <% end %>
-	            </li>
+				<% if logged_in? %>
+					<li>
+					  <%= link_to user_path(current_user) do %>
+						<span class="glyphicon glyphicon-home nav-item" aria-hidden="true"> Home</span>
+		              <% end %>
+		            </li>
 
-	            <li>
-				  <%= link_to home_about_path do %>
-					<span class="glyphicon glyphicon-link nav-item" aria-hidden="true"> About</span>
-	              <% end %>
-	            </li>
+		            <li>
+					  <%= link_to "#" do %>
+						<span class="glyphicon glyphicon-user nav-item" aria-hidden="true"> Users</span>
+		              <% end %>
+		            </li>
 
-	            <li>
-				  <%= link_to users_sign_up_path do %>
-					<span class="glyphicon glyphicon-edit nav-item" aria-hidden="true"> sign up</span>
-	              <% end %>
-	            </li>
+		            <li>
+					  <%= link_to "#" do %>
+						<span class="glyphicon glyphicon-book nav-item" aria-hidden="true"> Books</span>
+		              <% end %>
+		            </li>
 
-	            <li>
-				  <%= link_to "#" do %>
-					<span class="glyphicon glyphicon-log-in nav-item" aria-hidden="true"> login</span>
-	              <% end %>
-	            </li>
+		            <li>
+					  <%= link_to users_sign_out_path, method: :delete do %>
+						<span class="glyphicon glyphicon-log-out nav-item" aria-hidden="true"> logout</span>
+		              <% end %>
+		            </li>
+
+	            <% else %>
+		            <li>
+					  <%= link_to root_path do %>
+						<span class="glyphicon glyphicon-home nav-item" aria-hidden="true"> Home</span>
+		              <% end %>
+		            </li>
+
+		            <li>
+					  <%= link_to home_about_path do %>
+						<span class="glyphicon glyphicon-link nav-item" aria-hidden="true"> About</span>
+		              <% end %>
+		            </li>
+
+		            <li>
+					  <%= link_to users_sign_up_path do %>
+						<span class="glyphicon glyphicon-edit nav-item" aria-hidden="true"> sign up</span>
+		              <% end %>
+		            </li>
+
+		            <li>
+					  <%= link_to users_sign_in_path do %>
+						<span class="glyphicon glyphicon-log-in nav-item" aria-hidden="true"> login</span>
+		              <% end %>
+		            </li>
+	            <% end %>
 	        </ul>
 	    </nav>
 	</div>
