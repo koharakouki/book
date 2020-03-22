@@ -1,0 +1,32 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+	<div class="container">
+		<%= link_to "Bookers", root_path, id: "logo" %>
+		<nav>
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+				  <%= link_to root_path do %>
+					<span class="glyphicon glyphicon-home nav-item" aria-hidden="true"> Home</span>
+	              <% end %>
+	            </li>
+
+	            <li>
+				  <%= link_to home_about_path do %>
+					<span class="glyphicon glyphicon-link nav-item" aria-hidden="true"> About</span>
+	              <% end %>
+	            </li>
+
+	            <li>
+				  <%= link_to users_sign_up_path do %>
+					<span class="glyphicon glyphicon-edit nav-item" aria-hidden="true"> sign up</span>
+	              <% end %>
+	            </li>
+
+	            <li>
+				  <%= link_to "#" do %>
+					<span class="glyphicon glyphicon-log-in nav-item" aria-hidden="true"> login</span>
+	              <% end %>
+	            </li>
+	        </ul>
+	    </nav>
+	</div>
+</header>
