@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   		log_in @user
   		# ログインして永続セッションのためにユーザーを保持する
   		params[:session][:remember_me] == "1" ? remember(@user) : forget(@user)
-  		redirect_to @user
+  		redirect_back_or user
   	else
   		flash.now[:danger] = 'Invalid name/password combination'
   		render 'new'
