@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   delete 'users/sign_out', to: 'sessions#destroy'
   resources :users
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :postbooks, only: [:show, :index, :create, :edit, :update, :destroy]
 end

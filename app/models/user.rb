@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 	attr_accessor :remember_token, :reset_token
+	has_many :postbooks, dependent: :destroy
 	before_save { self.email = email.downcase }
 	validates :name, presence: true, length: { minimum: 2, maximum: 20 }, 
 									 uniqueness: { case_sensitive: false }
