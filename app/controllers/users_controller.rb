@@ -8,10 +8,13 @@ class UsersController < ApplicationController
   def index
     @users = User.paginate(page: params[:page])
     @user = User.find(current_user.id)
+    @postbook = current_user.postbooks.build if logged_in?
   end
 
   def show
   	@user = User.find(params[:id])
+    @postbook = current_user.postbooks.build if logged_in?
+    @postbooks = @user.postbooks.paginate(page: params[:page])
   end
 
   def create
@@ -44,13 +47,6 @@ class UsersController < ApplicationController
   	params.require(:user).permit(:name, :email, :password, :password_confirmation, :introduction, :profile_image_id)
   end
 
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = "please log in."
-      redirect_to users_sign_in_url
-    end
-  end
 
   def correct_user
     @user = User.find(params[:id])
