@@ -20,7 +20,7 @@
 		    <tbody>
 		    	<% @postbooks.each do |postbook| %>
 		    	<tr>
-					<td><%= link_to "#" do %>
+					<td><%= link_to user_path(postbook.user.id) do %>
 					<span><%= attachment_image_tag postbook.user, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-rounded pull-left profile-img", fallback: "no_image.jpg",size:'40x40' %></span>
 					<% end %>
 					</td>

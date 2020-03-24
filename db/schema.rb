@@ -12,13 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_03_23_065732) do
 
-  create_table "post_books", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "postbooks", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -34,7 +27,6 @@ ActiveRecord::Schema.define(version: 2020_03_23_065732) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "profile_image_id"
-    t.string "text"
     t.string "remember_digest"
     t.text "introduction"
     t.string "reset_digest"

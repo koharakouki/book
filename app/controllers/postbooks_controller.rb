@@ -2,9 +2,9 @@ class PostbooksController < ApplicationController
 	before_action :logged_in_user, only: [:create, :edit, :update, :destroy]
 
 	def show
-		@user = User.find(@post.user.id)
 		@post = Postbook.find(params[:id])
 		@postbook = current_user.postbooks.build if logged_in?
+		@user = User.find(@post.user.id)
 	end
 
 
